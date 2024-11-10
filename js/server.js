@@ -14,7 +14,7 @@ app.post('/save-coordinates', (req, res) => {
     res.status(200).send('좌표 저장 완료');
 });
 
-const PORT = 3000;
+const PORT = 5500;
 app.listen(PORT, () => {
     console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
 });
