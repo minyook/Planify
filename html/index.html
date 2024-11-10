@@ -1,26 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Planify</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="left-panel">
-            <img src="/image/logo.png" alt="Planify Logo" class="logo">
-            <div class="buttons">
-                <button class="login-button">로그인</button>
-                <button class="signup-button">회원가입</button>
-            </div>
+      <div class="left-panel">
+        <img
+          src="/image/logo.png"
+          alt="Planify Logo"
+          class="logo animate__animated animate__backInLeft"
+        />
+        <div class="buttons">
+          <button
+            class="login-button animate__animated animate__fadeIn animate__delay-1s"
+          >
+            로그인
+          </button>
+          <button
+            class="signup-button animate__animated animate__fadeIn animate__delay-1s"
+          >
+            회원가입
+          </button>
         </div>
-        <div class="right-panel">
-            <p class="description">
-                여행 계획을 대신 짜주는 AI 여행 계획 사이트!<br>
-                이용을 원하신다면 로그인을 해주세요!
-            </p>
-        </div>
+      </div>
+      <div class="right-panel">
+        <p class="description" id="animated-text"></p>
+      </div>
     </div>
-</body>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const text =
+        "여행 계획을 대신 짜주는 AI 여행 계획 사이트!\n이용을 원하신다면 로그인을 해주세요!";
+      let i = 0;
+      const speed = 50; // 타이핑 속도 (ms)
+
+      function typeWriter() {
+        if (i < text.length) {
+          document.getElementById("animated-text").innerHTML +=
+            text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+          i++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      typeWriter();
+    });
+  </script>
 </html>
