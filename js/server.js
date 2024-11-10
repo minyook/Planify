@@ -1,36 +1,20 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(cors()); // 모든 출처에서의 요청 허용
 app.use(bodyParser.json());
-app.use(cors());
 
-// AI API와의 통신 로직
-app.post('/generate-plan', (req, res) => {
-    const travelData = req.body;
+app.post('/save-coordinates', (req, res) => {
+    const { lat, lng } = req.body;
+    console.log('수신된 좌표:', lat, lng);
 
-    // AI API에 요청 전송 (예제용)
-    // 실제 API URL과 인증을 적용해야 함
-    fetch('https://example-ai-api.com/plan', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(travelData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        res.json(data); // 클라이언트에 JSON 응답 전송
-    })
-    .catch(error => {
-        console.error('AI API 요청 오류:', error);
-        res.status(500).send('AI API 요청 실패');
-    });
+    // 좌표를 데이터베이스나 파일에 저장할 수 있는 로직 추가
+    res.status(200).send('좌표 저장 완료');
 });
 
-// 서버 실행
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 app.listen(PORT, () => {
-    console.log(`서버가 포트 ${PORT}에서 실행 중입니다.`);
+    console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
 });

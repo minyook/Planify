@@ -9,8 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ff1rj7ko13"></script>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ff1rj7ko13&submodules=geocoder"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ff1rj7ko13&submodules=geocoder" async></script>
     <script defer src="/js/map.js"></script>
     <title>Planify</title>
 </head>
@@ -34,15 +33,12 @@
             >
               즐겨찾기
             </button>
+            <button id="next-button" class="animate__animated animate__fadeIn animate__delay-1s">다음으로 이동하기</button>
           </div>
         </div>
-        <div class="map-container">
-            <div id="map">
-                <!-- 지도 삽입 코드 -->
-            </div>
-            <button id="next-button">다음단계로 이동</button>
+        <div class="right-panel">
+          <div id="map"></div>
         </div>
-        
     </div>
 </body>
 
