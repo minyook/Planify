@@ -1,41 +1,55 @@
-var mapOptions = {
-    center: new naver.maps.LatLng(37.5665, 126.9780), // 초기 중심 좌표 (서울 시청)
-    zoom: 10
-};
+// Initialize and add the map
+let map;
 
-var map = new naver.maps.Map('map', mapOptions);
+async function initMap() {
+  // The location of Busan
+  const position = { lat: 35.1795543, lng: 129.0756416 };
+  // Request needed libraries.
+  //@ts-ignore
+  const { Map } = await google.maps.importLibrary("maps");
+  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
-// 지도 클릭 이벤트 리스너
-naver.maps.Event.addListener(map, 'click', function(e) {
-    var lat = e.coord.lat();
-    var lng = e.coord.lng();
+  // The map, centered at Busan
+  map = new Map(document.getElementById("map"), {
+    zoom: 4,
+    center: position,
+    mapId: "DEMO_MAP_ID",
+  });
 
-    // 로컬 스토리지에 저장
-    localStorage.setItem('selectedLat', lat);
-    localStorage.setItem('selectedLng', lng);
+  // The marker, positioned at Busan
+  const marker = new AdvancedMarkerElement({
+    map: map,
+    position: position,
+    title: "Busan",
+  });
 
-    console.log('위도:', lat, '경도:', lng);
+  // Add click event listener to the map
+  map.addListener("click", (event) => {
+    const clickedLatLng = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    };
 
-    // 서버로 좌표 전송
-    fetch('http://localhost:3000/save-coordinates', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ lat: lat, lng: lng })
-    }).then(response => {
-        if (response.ok) {
-            console.log('좌표가 서버에 저장되었습니다.');
-        } else {
-            console.error('좌표 저장 실패');
-        }
-    });
+    // Save the latitude and longitude to local storage
+    localStorage.setItem("clickedLocation", JSON.stringify(clickedLatLng));
+    console.log("Location saved to local storage:", clickedLatLng);
 
-    // 버튼 표시
+    // Show the button after location is saved
     document.getElementById('next-button').style.display = 'block';
-});
-
-function nextPage() {
-    alert("다음 페이지로 이동합니다!");
-    // 여기에 다음 페이지 이동을 위한 로직을 추가하세요.
+  });
 }
+
+// 초기 상태에서 버튼 숨기기
+document.getElementById('next-button').style.display = 'none';
+
+initMap();
+
+// 다음 단계 버튼 이벤트
+document.getElementById('next-button').addEventListener('click', function() {
+    const selectedLocation = JSON.parse(localStorage.getItem('clickedLocation')) || {};
+    if (!selectedLocation.lat) {
+        alert("위치를 선택하세요.");
+        return;
+    }
+    window.location.href = 'travel-info.html'; // 여행 정보 입력 화면으로 이동
+});
