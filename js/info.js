@@ -1,5 +1,5 @@
 // 폼 제출 시, 로컬 스토리지에 저장된 위치와 입력된 정보 AI로 전송
-document.querySelector('form').addEventListener('submit', function(event) {
+document.querySelector('input').addEventListener('submit', function(event) {
     event.preventDefault();
   
     const formData = {
@@ -9,6 +9,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
       endDate: document.querySelector('input[placeholder="도착 날짜"]').value,
       preference: document.querySelector('input[placeholder="선호 유형"]').value,
     };
+
   
     // 로컬 스토리지에 저장된 위치 가져오기
     const selectedLocation = JSON.parse(localStorage.getItem('clickedLocation')) || {};
