@@ -7,12 +7,13 @@ document.querySelector('form').addEventListener('submit', function(event) {
       budget: document.querySelector('input[placeholder="예상 경비를 적어주세요"]').value,
       startDate: document.querySelector('input[placeholder="출발 날짜"]').value,
       endDate: document.querySelector('input[placeholder="도착 날짜"]').value,
+      preference: document.querySelector('input[placeholder="선호 유형"]').value,
     };
   
     // 로컬 스토리지에 저장된 위치 가져오기
     const selectedLocation = JSON.parse(localStorage.getItem('clickedLocation')) || {};
   
-    if (!selectedLocation.lat || !formData.numPeople || !formData.budget || !formData.startDate || !formData.endDate) {
+    if (!selectedLocation.lat || !formData.numPeople || !formData.budget || !formData.startDate || !formData.endDate || !formData.preference) {
       alert("모든 필드를 입력하고 위치를 선택하세요.");
       return;
     }
