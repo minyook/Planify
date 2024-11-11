@@ -9,7 +9,8 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden; /* Prevents scrolling */
+    overflow: hidden;
+    /* Prevents scrolling */
     background-color: #f7f7f7;
 }
 
@@ -32,16 +33,20 @@ body {
 }
 
 .logo {
-    width: 400px; /* Set to 400px as per your preference */
+    width: 400px;
+    /* Set to 400px as per your preference */
     margin-bottom: 50px;
 }
 
 button {
     display: inline-block;
     justify-content: space-between;
-    gap: 10px; /* Reduces the gap between buttons */
-    width: 100%; /* Adjust width as needed */
-    max-width: 350px; /* Optional, to control the width */
+    gap: 10px;
+    /* Reduces the gap between buttons */
+    width: 100%;
+    /* Adjust width as needed */
+    max-width: 350px;
+    /* Optional, to control the width */
     margin: 10px;
     padding: 10px 20px;
     background-color: black;
@@ -50,8 +55,15 @@ button {
     border-radius: 15px;
     cursor: pointer;
 }
-.login-button, .signup-button, .mypage-button, .bookmark-button, #next-button {
-    flex: 1; /* Ensures buttons resize proportionally */
+
+.login-button,
+.signup-button,
+.mypage-button,
+.bookmark-button,
+#next-button,
+#plan-button {
+    flex: 1;
+    /* Ensures buttons resize proportionally */
     padding: 10px;
     border: 1px solid #000;
     border-radius: 20px;
@@ -62,7 +74,12 @@ button {
     transition: background-color 0.3s;
 }
 
-.login-button:hover, .signup-button:hover, .mypage-button:hover, .bookmark-button:hover, #next-button:hover {
+.login-button:hover,
+.signup-button:hover,
+.mypage-button:hover,
+.bookmark-button:hover,
+#next-button:hover,
+#plan-button:hover {
     background-color: #fff;
     color: #000;
 }
@@ -74,12 +91,82 @@ button {
     align-items: center;
     text-align: center;
     padding: 40px;
-    background-image: url('/image/dino-reichmuth-A5rCN8626Ck-unsplash.jpg'); /* 배경 이미지 경로 */
+    background-image: url('/image/dino-reichmuth-A5rCN8626Ck-unsplash.jpg');
+    /* 배경 이미지 경로 */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: #fff; /* 텍스트 색상을 흰색으로 설정 */
+    color: #fff;
+    /* 텍스트 색상을 흰색으로 설정 */
 }
+/* .right-panel 스타일 */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* 각 입력 그룹 스타일 */
+.form-container .people,
+.form-container .Date,
+.form-container .preference {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* input 필드 스타일 */
+.form-container input[type="number"],
+.form-container input[type="date"],
+.form-container input[type="button"] {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* input[type="button"] 스타일 */
+.form-container .preference input[type="button"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container .preference input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* 제출 버튼 스타일 */
+.form-container input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+
 
 /* 텍스트 배경을 투명하게 하는 스타일 */
 .description {
@@ -90,17 +177,20 @@ button {
     white-space: normal;
     overflow: visible;
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.5); /* 검은색 반투명 배경 */
-    padding: 10px; /* 텍스트 주위에 여백 추가 */
-    border-radius: 5px; /* 모서리를 둥글게 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 검은색 반투명 배경 */
+    padding: 10px;
+    /* 텍스트 주위에 여백 추가 */
+    border-radius: 5px;
+    /* 모서리를 둥글게 */
 }
 
 #map {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 800px;
-    height: 800px;
+    width: 500px;
+    height: 500px;
     border-radius: 50px;
     margin-top: 120px;
 }
@@ -108,7 +198,11 @@ button {
 
 /* 커서 깜빡임 애니메이션 삭제 */
 @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
+    from {
+        width: 0;
+    }
 
+    to {
+        width: 100%;
+    }
+}
