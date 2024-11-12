@@ -38,6 +38,9 @@ body {
     margin-bottom: 50px;
 }
 
+#logoElement:hover {
+    cursor: pointer;
+}
 button {
     display: inline-block;
     justify-content: space-between;
