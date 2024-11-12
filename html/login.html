@@ -17,11 +17,11 @@
             <form action="" class="form sign-up">
               <div class="input-group">
                 <i class="bx bxs-user"></i>
-                <input type="text" placeholder="Username" id="Username" />
+                <input type="text" placeholder="Username" id="Username" required/>
               </div>
               <div class="input-group">
                 <i class="bx bx-mail-send"></i>
-                <input type="email" placeholder="Email" id="signUpemail" />
+                <input type="email" placeholder="Email" id="signUpemail" required/>
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
@@ -29,16 +29,17 @@
                   type="password"
                   placeholder="Password"
                   id="signUppassword"
+                  required
                 />
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Confirm password" />
+                <input type="password" placeholder="Confirm password" id="confirmPassword" />
               </div>
               <button type="submit" id="signupButton">Sign up</button>
               <p>
                 <span> Already have an account? </span>
-                <b onclick="toggle()" class="pointer"> Sign in here </b>
+                <b id="showSignIn" class="pointer"> Sign in here </b>
               </p>
             </form>
           </div>
@@ -55,7 +56,7 @@
               </div>
               <div class="input-group">
                 <i class="bx bxs-lock-alt"></i>
-                <input type="password" placeholder="Password" id="signInpassword"/>
+                <input type="password" placeholder="Password" id="signInpassword" required/>
               </div>
               <button type="submit" id="signInButton">Sign in</button>
               <p>
@@ -63,7 +64,7 @@
               </p>
               <p>
                 <span> Don't have an account? </span>
-                <b onclick="toggle()" class="pointer"> Sign up here </b>
+                <b id="showSignUp" class="pointer"> Sign up here </b>
               </p>
             </form>
           </div>
