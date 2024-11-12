@@ -17,19 +17,24 @@
           src="/image/logo.png"
           alt="Planify Logo"
           class="logo animate__animated animate__backInLeft"
+          onclick="navigateToPage()"
+          id="logoElement"
         />
         <div class="buttons">
           <button
             class="login-button animate__animated animate__fadeIn animate__delay-1s"
+            onclick="window.location.href='login.html?section=login'"
           >
             로그인
           </button>
           <button
             class="signup-button animate__animated animate__fadeIn animate__delay-1s"
+            onclick="window.location.href='login.html?section=signup'"
           >
             회원가입
           </button>
         </div>
+        
       </div>
       <div class="right-panel">
         <p class="description" id="animated-text"></p>
@@ -54,5 +59,9 @@
 
       typeWriter();
     });
+
+    function navigateToPage() {
+      window.location.href = 'index.html'; // 클릭 시 main-map.html로 이동
+    }
   </script>
 </html>

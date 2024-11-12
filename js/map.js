@@ -60,3 +60,7 @@ document.getElementById('next-button').addEventListener('click', function() {
   // Navigate to the second screen (travel info input screen)
   window.location.href = 'main-info.html';
 });
+
+function navigateToPage() {
+  window.location.href = 'main-map.html'; // 클릭 시 main-map.html로 이동
+}
