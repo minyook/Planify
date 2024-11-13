@@ -1,3 +1,5 @@
+
+
 // Initialize and add the map
 let map;
 
@@ -64,3 +66,32 @@ document.getElementById('next-button').addEventListener('click', function() {
 function navigateToPage() {
   window.location.href = 'main-map.html'; // 클릭 시 main-map.html로 이동
 }
+
+function navigateToPage1() {
+  window.location.href = 'mypage.html'; // 클릭 시 main-map.html로 이동
+}
+
+ // Firebase 인증 상태 변화 감지
+ firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // 로그인 상태
+    var uid = user.uid;
+    sessionStorage.setItem('uid', uid);
+    console.log('UID:', uid);
+
+
+
+
+
+
+
+
+
+
+  } else {
+    // 로그아웃 상태
+    sessionStorage.removeItem('uid');
+    console.log('로그아웃 상태');
+    location.href = 'masterlogin.html';
+  }
+});

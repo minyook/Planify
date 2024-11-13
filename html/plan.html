@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planify</title>
 </head>
+
 <body>
     <header>
         <img src="/image/logo.png" alt="Planify-logo">
@@ -18,5 +19,44 @@
         <div class="planBox2"></div>
         <div class="planBox3"></div>
     </div>
+    <!-- Import the Gemini API SDK -->
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        // Replace 'YOUR_API_KEY' with your actual API key
+        const API_KEY = "YOUR_API_KEY";
+
+        if (!API_KEY) {
+            alert("API Key is missing. Please provide your API key.");
+        }
+
+        async function generateStory() {
+            try {
+                const genAI = new GoogleGenerativeAI(API_KEY);
+                const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+                const prompt = "Write a story about a magic backpack.";
+
+                // Generate content
+                const result = await model.generateContent(prompt);
+                const outputElement = document.getElementById('output');
+
+                // Display the result in the output element
+                outputElement.textContent = result.response.text();
+            } catch (error) {
+                console.error("Error generating content:", error);
+                alert("Failed to generate content. Check the console for details.");
+            }
+        }
+
+        document.getElementById('generate-btn').addEventListener('click', generateStory);
+    </script>
 </body>
 </html>
