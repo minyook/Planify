@@ -63,7 +63,7 @@ document.getElementById('next-button').addEventListener('click', function() {
   window.location.href = 'main-info.html';
 });
 
-function navigateToPage() {
+function navigateToPage2() {
   window.location.href = 'main-map.html'; // 클릭 시 main-map.html로 이동
 }
 

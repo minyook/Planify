@@ -33,26 +33,29 @@ body {
 }
 
 .logo {
-    width: 400px;
-    /* Set to 400px as per your preference */
-    margin-bottom: 50px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: #000; /* 원하는 색상으로 변경 가능 */
+    text-align: center;
+    margin-bottom: 100px;
 }
 
-#logoElement:hover {
+.logo:hover {
     cursor: pointer;
 }
-button {
-    display: inline-block;
-    justify-content: space-between;
-    gap: 10px;
+
+.buttons {
+    display: flex;
+    flex-direction: row; /* 버튼들을 가로로 정렬 */
+    justify-content: center; /* 버튼들이 가운데 정렬 */
+    gap: 15px; /* 버튼 사이의 간격 */
     /* Reduces the gap between buttons */
     width: 100%;
     /* Adjust width as needed */
     max-width: 350px;
     /* Optional, to control the width */
-    margin: 10px;
+    margin: 30px 20px;
     padding: 10px 20px;
-    background-color: black;
     color: white;
     border: none;
     border-radius: 15px;
@@ -94,7 +97,7 @@ button {
     align-items: center;
     text-align: center;
     padding: 40px;
-    background-image: url('/image/dino-reichmuth-A5rCN8626Ck-unsplash.jpg');
+    background-image: url('/image/background.jpg');
     /* 배경 이미지 경로 */
     background-size: cover;
     background-position: center;

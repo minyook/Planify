@@ -8,28 +8,23 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <link href="https://fonts.googleapis.com/css2?family=Great Vibes&display=swap" rel="stylesheet">
     <title>Planify</title>
   </head>
   <body>
     <div class="container">
       <div class="left-panel">
-        <img
-          src="/image/logo.png"
-          alt="Planify Logo"
-          class="logo animate__animated animate__backInLeft"
-          onclick="navigateToPage()"
-          id="logoElement"
-        />
+        <div class="logo animate__animated animate__backInLeft" onclick="navigateToPage()">Planify</div>
         <div class="buttons">
           <button
             class="login-button animate__animated animate__fadeIn animate__delay-1s"
-            onclick="window.location.href='login.html?section=login'"
+            onclick="navigateToPage4()"
           >
             로그인
           </button>
           <button
             class="signup-button animate__animated animate__fadeIn animate__delay-1s"
-            onclick="window.location.href='login.html?section=signup'"
+            onclick="navigateToPage3()"
           >
             회원가입
           </button>
@@ -62,6 +57,13 @@
 
     function navigateToPage() {
       window.location.href = 'index.html'; // 클릭 시 main-map.html로 이동
+    }
+
+    function navigateToPage3() {
+      window.location.href = 'join.html'
+    }
+    function navigateToPage4() {
+      window.location.href = 'login.html'
     }
   </script>
 </html>
